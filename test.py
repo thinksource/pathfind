@@ -12,7 +12,7 @@ caseA='''46B E59  EA C1F 45E  63
 pathA=[(0, 0), (1, 0), (2, 0), (2, 1), (2, 2), (3, 2), (3, 3), (3, 4), (4, 4), (5, 4), (5, 5)]
 simpleA= [[2,5,7,3,5,2],[1,9,2,1,8,3],[1,1,3,3,1,8],
    [2,1,1,3,8,9],[1,3,1,3,9,6],[4,2,8,7,2,4]]
-
+valueA=[[1131, 3673, 234, 3103, 1118, 99], [2201, 4095, 2342, 1965, 3150, 4095], [3630, 803, 1746, 2422, 2111, 3222], [2537, 2699, 2497, 1121, 3956, 3333], [3805, 3732, 1524, 3357, 3331, 3555], [137, 2341, 3321, 3232, 3864, 1234]]
 class TestpathFind(unittest.TestCase):
     def setUp(self):
         self.startx=0
@@ -43,6 +43,8 @@ class TestpathFind(unittest.TestCase):
         path=[(1, 0), (0, 0), (0, 1), (0, 2), (1, 2), (1, 3), (2, 3), (2, 4), (3, 4), (3, 5), (4, 5), (5, 5)]
         ps=Astarsearch(startx,starty,endx, endy,simpleA)
         self.assertEqual(path, ps.find_path())
+    def test_arrayio(self):
+        self.assertEqual(valueA,self.inA)
 
 if __name__ == '__main__':
     unittest.main()

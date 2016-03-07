@@ -97,3 +97,16 @@ function reconstruct_path(cameFrom, current)
         total_path.append(current)
     return total_path
 ```
+
+I use prority queue to fulfill this algorithm.
+The use heapq library to fulfill the function.
+
+##about heuristic function:
+```
+    f(n) = g(n) + h(n)
+```
+g(n) is the cost of the path from the start node to n, and
+
+h(n) is a heuristic that estimates the cost of the cheapest path from n to the goal.
+
+Actually, Dijksta's algoeithm is the special A* search Algorithm case, which h(n)=0
