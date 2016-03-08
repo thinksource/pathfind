@@ -114,7 +114,12 @@ The use heapq library to fulfill the priority queue.
 
 ##about heuristic function:
 
-
+```
+heuristic(startx, starty, endx,endy)
+```
 Actually, Dijksta's algoeithm is the special A* search Algorithm case, which h(n)=0
 
-If the heuristic function is large
+The algorithm speed is determined by the heuristic function, that is why I use A* algorithm to solve this problem.
+If h(n) is sometimes greater than the cost of moving from n to the goal, then A* is not guaranteed to find a shortest path, but it can run faster.
+
+For this case since the question is only want to make the best way do not limited the time consumption. I use very low h(n), which is only cost 1 per ceil, it goes. It may useless for this case, but I put the h(n) function here to control the speed of your search if you like rewrtie it.
