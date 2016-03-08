@@ -45,6 +45,13 @@ class TestpathFind(unittest.TestCase):
         self.assertEqual(path, ps.find_path())
     def test_arrayio(self):
         self.assertEqual(valueA,self.inA)
+        
+    def test_Node(self):
+        nodeA=Node(0,1,0.0,None)
+        nodeA.setpriority(1)
+        nodeB=Node(0,0,1.0,None)
+        nodeB.setpriority(0)
+        self.assertTrue(nodeA>nodeB)
 
 if __name__ == '__main__':
     unittest.main()
