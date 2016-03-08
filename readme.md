@@ -138,4 +138,8 @@ the closemap record the ceils the robot already visit
 
 the openmap record the ceils the robot need to visit
 
-If The only right and down and there is no repeat visit, just use the Greedy Best-First-Search Algorithm would be OK.
+If The only right and down and there is no repeat visit, just use the  Best-First-Search Algorithm would be OK.
+
+### The Greedy error
+
+The Gready method would do not go backward, if the max cost at end of the path it can not get the best way, so we need openmap in case we can go bachward to test alternative path is best or not.
