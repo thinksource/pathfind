@@ -13,6 +13,13 @@ def cost(self, x1,y1,x2,y2):
 (it is reasonable to consider the distance caculation by arithmetic mean)
 In other words, I use the edge movement caculate method to catulate the cost of movemnet. The cost of the path in each room is not unit, it determine by the tile you came from and the tile you go to.
 
+If you want to use the neil cost, you can use the
+```
+def cost(self, x1,y1,x2,y2):
+    return self.map[y2][x2]
+```
+That is indicate the every directions the cost is unifrom.
+
 3, the minify number of cost represent the cell is 1(no zero cost), and the cost should be integer number. (I think in the real world the travel distance must be positive cost.)
 
 4, the input numbers must be as array.
@@ -20,6 +27,8 @@ In other words, I use the edge movement caculate method to catulate the cost of 
 5, (bouns)the algorithm will consider allowing the robot up and left.
 if the robot go up, it will print 'u'
 if the robot go left, it will print 'l'
+
+6, (bouns)user can random select the start point and end point
 
 #run environment
 python version 2.7
@@ -123,3 +132,10 @@ The algorithm speed is determined by the heuristic function, that is why I use A
 If h(n) is sometimes greater than the cost of moving from n to the goal, then A* is not guaranteed to find a shortest path, but it can run faster.
 
 For this case since the question is only want to make the best way do not limited the time consumption. I use very low h(n), which is only cost 1 per ceil, it goes. It may useless for this case, but I put the h(n) function here to control the speed of your search if you like rewrtie it.
+
+## about openmap and the only right and down solution.
+the closemap record the ceils the robot already visit
+
+the openmap record the ceils the robot need to visit
+
+If The only right and down and there is no repeat visit, just use the Greedy Best-First-Search Algorithm would be OK.
