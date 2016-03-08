@@ -34,7 +34,9 @@ class Astarsearch:
         self.map=mapA
         self.open=[]
         self.path=[]
-
+        # the closemap record the ceils the robot already visit
+        # this is stict for the four directions way find
+        # if just right and down it do not necessary to use the closemap
         self.closemap=[[0 for x in range(self.width)] for x in range(self.height)]
         # every open point is max cost initially
         self.openmap=[[sys.maxint for x in range(self.width)] for x in range(self.height)]
@@ -72,6 +74,7 @@ class Astarsearch:
             p=p.parent
         self.path=path[::-1]
 
+    #draw path
     def printway(self):
         tmpway=""
         length=len(self.path)
