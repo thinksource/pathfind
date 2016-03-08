@@ -1,4 +1,4 @@
-#Assumptions&reasons:
+#Assumptions&Reasons:
 
 1, the input number is considered as hexadecimal numbers: for example the 46B will regards the number 1131 in decimal.
 
@@ -11,6 +11,7 @@ def cost(self, x1,y1,x2,y2):
     return (self.map[y1][x1]+self.map[y2][x2])/2
 ```
 (it is reasonable to consider the distance caculation by arithmetic mean)
+In other words, I use the edge movement caculate method to catulate the cost of movemnet. The cost of the path in each room is not unit, it determine by the tile you came from and the tile you go to.
 
 3, the minify number of cost represent the cell is 1(no zero cost), and the cost should be integer number. (I think in the real world the travel distance must be positive cost.)
 
@@ -98,15 +99,22 @@ function reconstruct_path(cameFrom, current)
     return total_path
 ```
 
-I use prority queue to fulfill this algorithm.
-The use heapq library to fulfill the function.
-
-##about heuristic function:
+In summary, the next ceil will put into the priority queue as the candidates to expend to the next step. The best weight cadidate will get to highest prority to expend the path.
+the order is depending on the function
 ```
     f(n) = g(n) + h(n)
 ```
+
 g(n) is the cost of the path from the start node to n, and
 
 h(n) is a heuristic that estimates the cost of the cheapest path from n to the goal.
 
+
+The use heapq library to fulfill the priority queue.
+
+##about heuristic function:
+
+
 Actually, Dijksta's algoeithm is the special A* search Algorithm case, which h(n)=0
+
+If the heuristic function is large
